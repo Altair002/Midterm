@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <form [formGroup]="user1Form" (ngSubmit)="addUser()">
+    <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <input type="text" class="form-control" id="firstname" formControlName="Firstname">
+      <div *ngIf="userForm.get('Firstname').hasError('required')" class="text-danger">Firstname is required</div>
+      <div *ngIf="userForm.get('Firstname').hasError('minlength')" class="text-danger">Firstname must be at least 3 characters</div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Lastname</label>
+      <input type="text" class="form-control" id="lastname" formControlName="Lastname">
+      <div *ngIf="userForm.get('Lastname').hasError('required')" class="text-danger">Lastname is required</div>
+      <div *ngIf="userForm.get('Lastname').hasError('minlength')" class="text-danger">Lastname must be at least 3 characters</div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" class="form-control" id="dob" formControlName="DateOfBirth">
+      <div *ngIf="userForm.get('DateOfBirth').hasError('required')" class="text-danger">Date of Birth is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" formControlName="PhoneNumber">
+      <div *ngIf="userForm.get('PhoneNumber').hasError('required')" class="text-danger">Phone Number is required</div>
+      <div *ngIf="userForm.get('PhoneNumber').hasError('minlength')" class="text-danger">Phone Number must be at least 9 characters</div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="Email">
+      <div *ngIf="userForm.get('Email').hasError('required')" class="text-danger">Email is required</div>
+      <div *ngIf="userForm.get('Email').hasError('minlength')" class="text-danger">Email must be at least 8 characters</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add User</button>
+  </form>
+
+  <div class="mt-4">
+    <h2>Users</h2>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.Firstname }} {{ user.Lastname }} - {{ user.Email }}
+      </li>
+    </ul>
+  </div>
+</div>

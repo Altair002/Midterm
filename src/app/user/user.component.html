@@ -1,0 +1,22 @@
+<h1>Data Passed from Parent Component</h1>
+
+<div *ngFor="let user of parentUsers">
+  <p>ID: {{ user.Id }}</p>
+  <p>Name: {{ user.Firstname }} {{ user.Lastname }}</p>
+  <p>Date of Birth: {{ user.DateOfBirth | date: 'shortDate' }}</p>
+  <p>Phone Number: {{ user.PhoneNumber }}</p>
+  <p>Email: {{ user.Email }}</p>
+  <hr>
+</div>
+
+<h1>Array from Child Component</h1>
+
+<div *ngFor="let user1 of childUsers">
+    <p>ID: {{ user.Id }}</p>
+    <p>Name: {{ user.Firstname }} {{ user.Lastname }}</p>
+    <p>Date of Birth: {{ user.DateOfBirth | date: 'shortDate' }}</p>
+    <p>Phone Number: {{ user.PhoneNumber }}</p>
+    <p>Email: {{ user.Email }}</p>
+  <hr>
+</div>
+
